@@ -1,0 +1,796 @@
+/* Reset CSS */
+
+/* 
+    1. Làm từ ngoài vào trong
+    2. Làm từ trong xuống dưới
+    3. Từ tổng quan đến chi tiết
+*/
+
+/* 
+    1. Vị trí
+    2. Kích thước (width, height)
+    3. Màu sắc
+    4. Kiểu dáng (font chữ, kiểu chữ, hình tròn, vuông...)
+*/
+
+/* Comman */
+.clear {
+    clear: both;
+}
+
+.text-black {
+    color: black !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.row {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.column {
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.column-full {
+    width: 100%;
+}
+
+.column-half {
+    width: 50%;
+}
+
+.column-quarter {
+    width: 25%;
+}
+
+.mt4px {
+    margin-top: 4px;
+}
+
+/* Main */
+#main {
+    overflow: hidden;
+}
+
+/* main header */
+
+#main__header {
+    height: 60px;
+    background-color: #201f1f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+#nav .subnav {
+    list-style-type: none;
+    min-width: 120px;
+    display: none;
+    top: 100%;
+    left: 0%;
+    position: absolute;
+    background-color: #201f1f;
+    box-shadow: 0 0 20px black;
+}
+
+#nav {
+    display: inline-block;
+}
+
+#nav>li {
+    display: inline-block;
+}
+
+#nav li {
+    position: relative;
+}
+
+#nav li a {
+    text-decoration: none;
+    line-height: 60px;
+    padding: 0 20px;
+    display: block;
+}
+
+#nav>li>a {
+    color: pink;
+    text-transform: uppercase;
+}
+
+#nav>li:hover>a,
+#nav .subnav li:hover a {
+    color: black;
+    background-color: pink;
+    display: block;
+}
+
+#nav li:active a {
+    color: red;
+    background-color: black;
+    display: block;
+}
+
+
+#nav .nav-arrow-down {
+    font-size: 12px;
+}
+
+#main__header .search-button {
+    float: right;
+    padding: 0 21px;
+}
+
+#main__header .search-button .search-icon {
+    font-size: 20px;
+    color: pink;
+    line-height: 60px;
+}
+
+#main__header .search-button:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+#main__header .menu-button {
+    float: right;
+    padding: 0 21px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+#main__header .menu-button .menu-icon {
+    font-size: 20px;
+    color: pink;
+    line-height: 60px;
+}
+
+#main__header .menu-button:hover {
+    background-color: pink;
+}
+
+#main__header .menu-button:hover .menu-icon {
+    color: black;
+}
+
+#nav .subnav a {
+    color: pink;
+    padding: 0 12px;
+    line-height: 48px;
+}
+
+
+#nav>li:hover .subnav {
+    display: block
+}
+
+/* main slider */
+
+#main__slider {
+    position: relative;
+    width: 100%;
+    background-color: pink;
+    margin-top: 60px;
+    padding-top: 66.6%;
+    background: url("../img/background.jpg") top center/cover no-repeat;
+}
+
+#main__slider .text-content {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+#main__slider .text-heading {
+    font-weight: 600;
+    font-size: 24px;
+    color: rgba(255, 51, 167, 0.9);
+    text-shadow: 0 0 1px black;
+}
+
+#main__slider .text-description {
+    margin-top: 20px;
+    font-size: 16px;
+    color: rgba(255, 51, 167, 0.9);
+    text-shadow: 0 0 1px black;
+}
+
+/* main content */
+
+#main__content {
+    min-height: 2000px;
+    background-color: black;
+}
+
+/* content section */
+
+#main__content .content-section {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 80px 0;
+    color: pink;
+}
+
+#main__content .content-heading {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 30px;
+}
+
+#main__content .content-sub-heading {
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    font-size: 18px;
+    opacity: 0.7;
+    /* độ mờ từ 0 - 1 */
+}
+
+#main__content .member-team {
+    margin-top: 48px;
+    overflow: hidden;
+}
+
+.member-team a:hover {
+    font-size: 20px;
+}
+
+/* 
+Nếu các thẻ con dùng float thì thẻ cha sẽ bị co lại và k thể ôm các thẻ con
+Có thể khắc phục bằng cách:
+    + css overflow: hidden; ở thẻ cha
+    + tạo 1 class clear rỗng ở phía cuối các thẻ con 
+    rồi qua css cho class clear (clear: both)
+ */
+
+#main__content .member-image {
+    width: 200px;
+    height: 270px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px pink;
+}
+
+@media screen and (max-width: 69.5625em) {
+
+    .place-image,
+    .member-image {
+        margin-top: 30px;
+    }
+
+    #main__content .member-image {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+#main__content .member-name {
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: pink;
+}
+
+#main__content .about-text {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* tour section */
+.tour-section {
+    background-color: pink;
+}
+
+.tour-section .book-ticket {
+    list-style-type: none;
+    background-color: black;
+
+}
+
+.tour-section .book-ticket .unavailable {
+    background-color: red;
+    padding: 3px 5px;
+    float: right;
+}
+
+.tour-section .book-ticket .quantity {
+    float: right;
+    background-color: pink;
+    color: black;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 25px;
+    margin-right: 25px;
+    margin-top: -1px;
+}
+
+.book-ticket .quantity:hover {
+    cursor: pointer;
+    background-color: yellow;
+    color: red;
+}
+
+.tour-section .book-ticket li {
+    font-size: 18px;
+    padding: 8px 15px;
+    border-bottom: 1px dotted pink;
+}
+
+/* Place tours */
+
+.place-list {
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+.place-image {
+    width: 100%;
+    height: 150px;
+    display: block;
+    border-radius: 5px;
+}
+
+.place-image:hover {
+    opacity: 0.5;
+}
+
+.place-country {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.place-body {
+    background-color: rgba(245, 250, 231, 0.459);
+    color: black;
+    padding: 15px;
+    font-size: 15px;
+}
+
+.place-time {
+    margin: 15px 0;
+    color: purple;
+}
+
+.place-content {
+    line-height: 1.4;
+}
+
+.buy-tickets {
+    background-color: black;
+    color: pink;
+    text-decoration: none;
+    padding: 10px 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.buy-tickets:hover {
+    background-color: lime;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.buy-tickets:active {
+    background-color: black;
+}
+
+/* Modal */
+
+.modal.open {
+    display: flex;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(233, 196, 227, 0.5);
+    align-items: center;
+    justify-content: center;
+    display: none;
+    animation: move ease 1s;
+}
+
+.modal-container {
+    background-color: white;
+    width: 800px;
+    max-width: calc(100% - 100px);
+    min-height: 400px;
+    position: relative;
+}
+
+.modal-close-botton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px;
+    font-weight: bold;
+    background-color: red;
+    opacity: 0.2;
+    border: 0.1px dotted green;
+}
+
+.modal-close-botton:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.model-ticket {
+    margin-right: 5px;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background-color: rgba(104, 239, 104, 0.8);
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 0 20px 20px;
+    display: grid;
+    line-height: 35px;
+    font-size: 18px;
+}
+
+.modal-body .modal-label {
+    margin-top: 20px
+}
+
+.modal-body .modal-input {
+    padding: 10px;
+    font-size: 15px;
+    border: 1.5px double pink;
+    box-shadow: 0 0 5px black;
+}
+
+.js-modal-buy-botton {
+    width: 95%;
+    height: 40px;
+    padding: 5px;
+    font-size: 20px;
+    margin: 0px 30px 0 20px;
+    border: none;
+    background-color: rgb(104, 239, 104);
+    border: 1.5px double pink;
+    box-shadow: 0 0 5px black;
+}
+
+.js-modal-buy-botton:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.modal-footer {
+    padding: 20px;
+    text-align: right;
+    color: rgb(249, 69, 62);
+}
+
+.modal-footer a {
+    color: rgb(249, 69, 62);
+}
+
+/* contact section */
+.contact-content {
+    padding-top: 20px;
+}
+
+.contact-info {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.contact-info a {
+    color: pink;
+}
+
+.contact-info a:hover {
+    color: lime;
+}
+
+.contact-form .form-control {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    width: 100%;
+    border: 2px dotted pink;
+}
+
+.contact-form #country {
+    padding: 10px;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px dotted pink;
+}
+
+.contact-form #submit-botton {
+    margin-top: 5px;
+    padding: 10px;
+    width: 100%;
+    border: 1px dotted pink;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#submit-botton:hover {
+    cursor: pointer;
+    background-color: lime;
+}
+
+.map-section img {
+    width: 100%;
+}
+
+/* main footer */
+
+#main__footer {
+    /* min-height: 200px; */
+    background-color: pink;
+    padding: 20px;
+    text-align: center;
+}
+
+#main__footer .social-media a {
+    font-size: 32px;
+    text-decoration: none;
+    padding-right: 10px;
+    color: rgba(72, 113, 247, 0.8)
+}
+
+#main__footer a:hover {
+    opacity: 0.5;
+    text-decoration: none;
+}
+
+#main__footer .power-by {
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+}
+
+#main__footer .power-by a {
+    text-decoration: none;
+    color: rgba(72, 113, 247, 0.8);
+    padding: 20px 0;
+}
+
+@media screen and (max-width: 64em) {
+
+    #main__footer .social-media a {
+        font-size: 36px;
+        padding-right: 24px;
+    }
+
+    .buy-tickets {
+        padding: 12px 15px;
+    }
+
+    .contact-form .form-control {
+        padding: 15px;
+        border-radius: 5px;
+        border: 1px solid #333;
+        width: 100%;
+        border: 2px dotted pink;
+    }
+
+    .contact-form #country {
+        padding: 15px;
+        width: 100%;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px dotted pink;
+    }
+
+    .contact-form #submit-botton {
+        margin-top: 5px;
+        padding: 15px;
+        width: 100%;
+        border: 1px dotted pink;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .contact-info {
+        line-height: 2;
+    }
+}
+
+@media screen and (max-width: 50em) {
+    .js-modal-buy-botton {
+        width: 94%;
+    }
+}
+
+@media screen and (max-width: 46.25em) {
+
+    #main__slider .text-description,
+    #main__content .content-sub-heading,
+    #main__content .about-text,
+    .tour-section .book-ticket li {
+        font-size: 15px;
+    }
+
+
+    #main__content .content-heading,
+    #main__slider .text-heading {
+        font-size: 18px;
+    }
+
+    #nav {
+        display: block;
+    }
+
+    #nav .subnav {
+        position: initial;
+    }
+
+    #nav .subnav a {
+        padding: 0 36px;
+    }
+
+    #nav>li {
+        display: block;
+    }
+
+    #nav>li:first-child {
+        display: inline-block;
+    }
+
+    #main__header {
+        overflow: hidden;
+    }
+
+    #main__header .search-button {
+        display: none;
+    }
+
+    #main__header .menu-button {
+        display: block;
+    }
+
+    .js-modal-buy-botton {
+        width: 93%;
+    }
+
+    #main__slider .text-content {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #main__slider .text-heading {
+        margin-bottom: -10px;
+    }
+}
+
+
+@media screen and (max-width: 43.75em) {
+
+    #main__content .content-section {
+        padding: 30px 0;
+    }
+
+
+    .contact-info {
+        font-size: 14px;
+        line-height: 2.2;
+    }
+
+    .column-full {
+        width: 100% !important;
+    }
+
+    #main__footer {
+        padding: 10px;
+    }
+
+    .tour-section .book-ticket .quantity {
+        float: right;
+        background-color: pink;
+        color: black;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        line-height: 25px;
+        margin-right: 15px;
+        margin-top: -5px;
+    }
+
+    .contact-form .form-control {
+        margin-top: 8px;
+    }
+
+    .contact-form {
+        margin-top: 15px;
+    }
+
+    .js-modal-buy-botton {
+        width: 92.5%;
+    }
+}
+
+@media screen and (max-width: 37.5em) {
+
+    .place-image,
+    #main__content .member-image {
+        width: 100%;
+        height: 400px;
+    }
+
+    .buy-tickets {
+        width: 100%;
+    }
+
+    .js-modal-buy-botton {
+        width: 91%;
+    }
+}
+
+@media screen and (max-width: 32.5em) {
+    #main__slider .background {
+        height: 300px;
+    }
+
+    .js-modal-buy-botton {
+        width: 89%;
+    }
+}
+
+@keyframes move {
+    from {
+        opacity: 0.3;
+        transform: translateY(-120px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
